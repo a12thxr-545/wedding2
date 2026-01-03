@@ -797,6 +797,16 @@ section {
     opacity: 1;
 }
 
+.color-swatch.active {
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15),
+        0 0 0 2px var(--color-gold);
+}
+
+.color-swatch.active::after {
+    opacity: 1;
+}
+
 /* Full Page Image */
 .fullpage-image-section {
     padding: 0;

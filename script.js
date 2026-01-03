@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initPageTransition();
     initBackgroundMusic();
+    initColorSwatches();
 });
 
 // ===== Loading Screen =====
@@ -262,5 +263,17 @@ function initBackgroundMusic() {
 
     ['click', 'touchstart', 'scroll'].forEach(event => {
         document.addEventListener(event, startMusicOnInteraction, { once: true });
+    });
+}
+
+// ===== Color Swatches Click Toggle =====
+function initColorSwatches() {
+    const colorSwatches = document.querySelectorAll('.color-swatch');
+
+    colorSwatches.forEach(swatch => {
+        swatch.addEventListener('click', () => {
+            // Toggle active class on this swatch
+            swatch.classList.toggle('active');
+        });
     });
 }
