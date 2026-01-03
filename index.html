@@ -935,20 +935,24 @@
             letter-spacing: 0.12em;
             animation: fadeInPrompt 1s ease forwards 1.2s, magicPulse 3s ease-in-out infinite 2.2s;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.3s ease, visibility 0s linear 0.3s;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            visibility: visible;
+            z-index: 10;
         }
 
         .envelope.open .open-prompt {
             opacity: 0 !important;
+            visibility: hidden;
             pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0s linear 0.3s;
         }
 
         /* Card Prompt - appears after envelope opens */
         .card-prompt {
             font-family: 'Times New Roman', Times, serif;
             position: absolute;
-            bottom: -85px;
+            bottom: -75px;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -957,13 +961,17 @@
             font-size: 1rem;
             letter-spacing: 0.1em;
             opacity: 0;
+            visibility: hidden;
             pointer-events: none;
-            transition: opacity 0.8s ease;
+            transition: opacity 0.5s ease 0.3s, visibility 0s linear 0s;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            z-index: 10;
         }
 
         .envelope.open .card-prompt {
             opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease 0.5s, visibility 0s linear 0.3s;
             animation: cardPromptPulse 2.5s ease-in-out infinite 1.5s;
         }
 
