@@ -272,8 +272,10 @@ function initColorSwatches() {
 
     colorSwatches.forEach(swatch => {
         swatch.addEventListener('click', () => {
-            // Toggle active class on this swatch
-            swatch.classList.toggle('active');
+            // Remove active class from all swatches first
+            colorSwatches.forEach(s => s.classList.remove('active'));
+            // Add active class to the clicked swatch
+            swatch.classList.add('active');
         });
     });
 }
