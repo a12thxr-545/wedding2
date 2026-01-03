@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anon & Sarocha | Wedding</title>
+    <meta name="description" content="We're getting married! Join us to celebrate our love story.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="song/Good Times Instrumental.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control Button -->
+    <button class="music-toggle" id="musicToggle" title="Toggle Music">
+        <svg class="music-icon music-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+        </svg>
+        <svg class="music-icon music-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+            <line x1="1" y1="1" x2="23" y2="23" />
+        </svg>
+    </button>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading">
+        <div class="loading-content">
+            <div class="loading-monogram">Anon & Saro</div>
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#hero" class="nav-link">หน้าหลัก</a></li>
+            <li><a href="#timeline" class="nav-link">กำหนดการ</a></li>
+            <li><a href="#venue" class="nav-link">สถานที่</a></li>
+            <li><a href="#gallery" class="nav-link">แกลเลอรี่</a></li>
+        </ul>
+        <div class="burger-menu" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="imgaess/Facebook Image (1).jpeg" alt="Wedding">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-names">
+                Anon <span class="hero-ampersand">and</span> Sarocha
+            </h1>
+            <p class="hero-date">SAT | 24 | JAN</p>
+            <p class="hero-date">2026</p>
+            <div class="hero-divider"></div>
+
+            <!-- Countdown integrated into hero -->
+            <div class="hero-countdown">
+                <p class="countdown-title">Counting Down To Forever</p>
+                <div class="countdown-wrapper" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+        </div>
+    </section>
+
+
+    <!-- Timeline Section -->
+    <section class="timeline-section" id="timeline">
+        <div class="section-header reveal">
+            <span class="section-label">กำหนดการ</span>
+            <h2 class="section-title">The Celebration</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-time">06:30</div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">พิธีสงฆ์</h3>
+                        <p class="timeline-description">Religious Ceremony</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-time">08:09</div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">แห่ขันหมาก</h3>
+                        <p class="timeline-description">Khan Maak Procession</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-time">08:30</div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">พิธีหมั้น</h3>
+                        <p class="timeline-description">Engagement Ceremony</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-time">09:00</div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">พิธีหลั่งน้ำสังข์</h3>
+                        <p class="timeline-description">Water Pouring Ceremony</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-time">10:00</div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">รับประทานอาหาร</h3>
+                        <p class="timeline-description">Wedding Luncheon</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-time">17:00</div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">งานเลี้ยงเฉลิมฉลอง</h3>
+                        <p class="timeline-description">Party</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dress Code as Timeline Item -->
+            <div class="timeline-item timeline-item-dresscode reveal">
+                <div class="timeline-time"></div>
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Dress Code</h3>
+                    <div class="dresscode-colors-inline">
+                        <div class="color-swatch" style="background: #FC0303;" title="red"></div>
+                        <div class="color-swatch" style="background: #F5710C;" title="orange"></div>
+                        <div class="color-swatch" style="background: #FAD62F;" title="yellow"></div>
+                        <div class="color-swatch" style="background: #F584E7;" title="pink"></div>
+                        <div class="color-swatch" style="background: #D8B0F7;" title="green"></div>
+                        <div class="color-swatch" style="background: #8BA82F;" title="purple"></div>
+                        <div class="color-swatch" style="background: #7A5418;" title="brown"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Image Section -->
+    <section class="fullpage-image-section">
+        <div class="fullpage-image">
+            <img src="imgaess/Set 5 ป่าดอน (6).jpg" alt="Wedding Photo">
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-header reveal">
+            <h2 class="section-title">Our Gallery</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item featured reveal">
+                <img src="imgaess/Set 5 ป่าดอน (8).jpg" alt="Gallery">
+            </div>
+            <div class="gallery-item reveal">
+                <img src="imgaess/Set 5 ป่าดอน (4).jpg" alt="Gallery">
+            </div>
+            <div class="gallery-item reveal">
+                <img src="imgaess/Set 5 ป่าดอน (7).jpg" alt="Gallery">
+            </div>
+            <div class="gallery-item reveal">
+                <img src="imgaess/Set 5 ป่าดอน (5).jpg" alt="Gallery">
+            </div>
+            <div class="gallery-item reveal">
+                <img src="imgaess/22728 copy.jpg" alt="Gallery">
+            </div>
+            <div class="gallery-item reveal">
+                <img src="imgaess/Set 5 ป่าดอน (2).jpg" alt="Gallery">
+            </div>
+            <div class="gallery-item reveal">
+                <img src="imgaess/Set 5 Don Forest Images (4).jpg" alt="Gallery">
+            </div>
+        </div>
+        <div class="gallery-link reveal">
+            <a href="gallery.html" id="galleryLink">ดูแกลเลอรี่ทั้งหมด →</a>
+        </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section class="venue-section" id="venue">
+        <div class="section-header reveal">
+            <span class="section-label">สถานที่จัดงาน</span>
+            <h2 class="section-title">The Venue</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="venue-map-container reveal">
+            <a href="https://maps.app.goo.gl/cjMfuSi8AsLkR9yCA" target="_blank" class="venue-map-link">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3000!2d102.295022!3d15.158061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDA5JzI5LjAiTiAxMDLCsDE3JzQyLjEiRQ!5e0!3m2!1sen!2sth!4v1703810786000"
+                    width="100%" height="450" style="border:0; border-radius: 12px; pointer-events: none;"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="venue-map-overlay">
+                    <span class="venue-map-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        เปิดใน Google Maps
+                    </span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="pageTransition">
+        <div class="page-transition-content">
+            <div class="page-transition-title">Gallery</div>
+            <div class="page-transition-loader"></div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-names">Thank You</p>
+        <p class="footer-namese">For</p>
+        <p class="footer-nameses">Carebrating with us</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Lightbox Image" id="lightboxImg">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

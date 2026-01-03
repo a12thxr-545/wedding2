@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Anon & Salocha Wedding</title>
+    <meta name="description" content="Photo gallery of Anon & Salocha's journey together.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ===== Gallery Page Styles ===== */
+        .gallery-page {
+            padding-top: 100px;
+            min-height: 100vh;
+            background: var(--color-cream);
+        }
+
+        .gallery-page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-gray-600);
+            margin-bottom: 2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .back-link:hover {
+            color: var(--color-gold);
+        }
+
+        .back-link.with-underline {
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--color-gold);
+        }
+
+        /* ===== Wedding Album Grid Layout ===== */
+        .album-container {
+            width: var(--container-width);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-bottom: 4rem;
+        }
+
+        /* Hero Image - Full Width */
+        .album-hero {
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Album Section - Simple Grid */
+        .album-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            align-items: start;
+        }
+
+        /* Layout D: Full width single image */
+        .album-section.layout-d {
+            display: block;
+        }
+
+        /* Album Item Base Styles */
+        .album-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+
+        .album-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .album-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Subtle overlay on hover */
+        .album-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    transparent 0%,
+                    transparent 60%,
+                    rgba(0, 0, 0, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .album-item:hover::after {
+            opacity: 1;
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 992px) {
+            .album-section {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            .album-section.layout-a .album-item:nth-child(1) {
+                grid-column: 1 / 3;
+                grid-row: 1;
+            }
+
+            .album-section.layout-a .album-item:nth-child(2) {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .album-section.layout-a .album-item:nth-child(3) {
+                grid-column: 2;
+                grid-row: 2;
+            }
+
+            .album-section.layout-b .album-item:nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .album-section.layout-b .album-item:nth-child(2) {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .album-section.layout-b .album-item:nth-child(3) {
+                grid-column: 1 / 3;
+                grid-row: 2;
+            }
+
+            .album-section.layout-c .album-item:nth-child(3) {
+                grid-column: 1 / 3;
+            }
+
+            .album-item.portrait,
+            .album-item.landscape {
+                aspect-ratio: 4/3;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-page {
+                padding-top: 80px;
+            }
+
+            .gallery-page-header {
+                margin-bottom: 2rem;
+                padding: 1rem;
+            }
+
+            .album-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .album-section {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .album-section.layout-a .album-item:nth-child(1),
+            .album-section.layout-a .album-item:nth-child(2),
+            .album-section.layout-a .album-item:nth-child(3),
+            .album-section.layout-b .album-item:nth-child(1),
+            .album-section.layout-b .album-item:nth-child(2),
+            .album-section.layout-b .album-item:nth-child(3),
+            .album-section.layout-c .album-item:nth-child(3) {
+                grid-column: 1;
+                grid-row: auto;
+            }
+
+            .album-hero .album-item,
+            .album-section.layout-d .album-item {
+                aspect-ratio: 16/9;
+            }
+
+            .album-item.portrait {
+                aspect-ratio: 3/4;
+            }
+
+            .album-item.landscape,
+            .album-item.square {
+                aspect-ratio: 4/3;
+            }
+
+            .album-section {
+                margin-bottom: 1rem;
+            }
+
+            .album-hero {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Return Home Button */
+        .return-home-container {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .return-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 3rem;
+            background: var(--color-black);
+            color: var(--color-white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border: 2px solid var(--color-black);
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .return-home-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .return-home-btn:hover::before {
+            left: 100%;
+        }
+
+        .return-home-btn:hover {
+            background: transparent;
+            color: var(--color-black);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .return-home-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .return-home-btn:hover svg {
+            transform: translateX(-5px);
+        }
+
+        .return-home-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .return-home-divider span {
+            font-family: var(--font-script);
+            font-size: 1.5rem;
+            color: var(--color-gold);
+        }
+
+        .return-home-divider::before,
+        .return-home-divider::after {
+            content: '';
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="song/Good Times Instrumental.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control Button -->
+    <button class="music-toggle" id="musicToggle" title="Toggle Music">
+        <svg class="music-icon music-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+        </svg>
+        <svg class="music-icon music-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+            <line x1="1" y1="1" x2="23" y2="23" />
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="main.html" class="nav-link">หน้าหลัก</a></li>
+            <li><a href="main.html#timeline" class="nav-link">กำหนดการ</a></li>
+            <li><a href="main.html#venue" class="nav-link">สถานที่</a></li>
+            <li><a href="gallery.html" class="nav-link">แกลเลอรี่</a></li>
+        </ul>
+        <div class="burger-menu" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </div>
+    </nav>
+
+    <main class="gallery-page">
+        <!-- Header -->
+        <div class="gallery-page-header">
+            <a href="main.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12" />
+                    <polyline points="12 19 5 12 12 5" />
+                </svg>
+                กลับหน้าหลัก
+            </a>
+            <span class="section-label">ภาพถ่ายของเรา</span>
+            <h1 class="section-title">Our Gallery</h1>
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Album Container -->
+        <div class="album-container">
+
+            <!-- All Photos in Simple Grid -->
+            <div class="album-section">
+                <div class="album-item reveal">
+                    <img src="imgaess/Set 5 Don Forest Image (2).jpg" alt="Wedding Photo">
+                </div>
+                <div class="album-item reveal">
+                    <img src="imgaess/Facebook Image (3).jpeg" alt="Wedding Photo">
+                </div>
+                <div class="album-item reveal">
+                    <img src="imgaess/Set 5 ป่าดอน (7).jpg" alt="Wedding Photo">
+                </div>
+                <div class="album-item reveal">
+                    <img src="imgaess/Set 4 ย่าโม (3).jpg" alt="Wedding Photo">
+                </div>
+                <div class="album-item reveal">
+                    <img src="imgaess/Set 3 Japan IMG 4629.jpg" alt="Wedding Photo">
+                </div>
+                <div class="album-item reveal">
+                    <img src="imgaess/Set 1 Image 4357.jpg" alt="Wedding Photo">
+                </div>
+                <div class="album-item reveal">
+                    <img src="imgaess/Set 2 IMG 6978 Edit.jpg" alt="Wedding Photo">
+                </div>
+                <div class="album-item reveal">
+                    <img src="imgaess/Set 2 Image 4416.jpg" alt="Wedding Photo">
+                </div>
+                <div class="album-item reveal">
+                    <img src="imgaess/Set 5 ภาพป่าดอน.jpg" alt="Wedding Photo">
+                </div>
+                <div class="album-item reveal">
+                    <img src="imgaess/Set 5 Don Forest Images (1).jpg" alt="Wedding Photo">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Return Home Link -->
+        <div class="gallery-page-header" style="margin-top: 4rem; margin-bottom: 0;">
+            <a href="main.html" class="back-link with-underline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12" />
+                    <polyline points="12 19 5 12 12 5" />
+                </svg>
+                กลับหน้าหลัก
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-names">Thank You</p>
+        <p class="footer-namese">For</p>
+        <p class="footer-nameses">Carebrating with us</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Lightbox Image" id="lightboxImg">
+    </div>
+
+    <script>
+        // Burger Menu
+        const burger = document.getElementById('burger');
+        const navMenu = document.getElementById('navMenu');
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Scroll Reveal Animation for Album Items
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Add staggered delay for each item
+                        setTimeout(() => {
+                            entry.target.classList.add('active');
+                        }, index * 100); // 100ms delay between each
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            reveals.forEach(reveal => observer.observe(reveal));
+        }
+
+        initScrollReveal();
+
+        // Lightbox
+        const items = document.querySelectorAll('.album-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                lightboxImg.src = item.querySelector('img').src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Page Transition for Return Home Button
+        const returnHomeBtn = document.getElementById('returnHomeBtn');
+        const pageTransition = document.getElementById('pageTransition');
+
+        if (returnHomeBtn && pageTransition) {
+            returnHomeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = returnHomeBtn.getAttribute('href');
+
+                // Show transition overlay
+                pageTransition.classList.add('active');
+
+                // Add body leaving animation
+                document.body.classList.add('page-leaving');
+
+                // Navigate after animation
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 800);
+            });
+        }
+
+        // Music Control
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggle = document.getElementById('musicToggle');
+
+        if (bgMusic && musicToggle) {
+            // Check saved music state
+            const musicPlaying = localStorage.getItem('musicPlaying');
+            const musicTime = localStorage.getItem('musicTime');
+
+            if (musicTime) {
+                bgMusic.currentTime = parseFloat(musicTime);
+            }
+
+            // Auto play by default (if null or true)
+            if (musicPlaying === 'true' || musicPlaying === null) {
+                bgMusic.play().then(() => {
+                    musicToggle.classList.add('playing');
+                    localStorage.setItem('musicPlaying', 'true');
+                }).catch(() => { });
+            }
+
+            // Toggle music on click
+            musicToggle.addEventListener('click', () => {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicToggle.classList.add('playing');
+                    localStorage.setItem('musicPlaying', 'true');
+                } else {
+                    bgMusic.pause();
+                    musicToggle.classList.remove('playing');
+                    localStorage.setItem('musicPlaying', 'false');
+                }
+            });
+
+            // Save music position periodically
+            setInterval(() => {
+                if (!bgMusic.paused) {
+                    localStorage.setItem('musicTime', bgMusic.currentTime);
+                }
+            }, 1000);
+
+            // Start music on first interaction (fallback)
+            function startMusicOnInteraction() {
+                if (bgMusic.paused && localStorage.getItem('musicPlaying') !== 'false') {
+                    bgMusic.play().then(() => {
+                        musicToggle.classList.add('playing');
+                        localStorage.setItem('musicPlaying', 'true');
+                    }).catch(() => { });
+                }
+                // Remove listeners once tried
+                ['click', 'touchstart', 'scroll'].forEach(event => {
+                    document.removeEventListener(event, startMusicOnInteraction);
+                });
+            }
+
+            ['click', 'touchstart', 'scroll'].forEach(event => {
+                document.addEventListener(event, startMusicOnInteraction, { once: true });
+            });
+        }
+    </script>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="pageTransition">
+        <div class="page-transition-content">
+            <div class="page-transition-title">Home</div>
+            <div class="page-transition-loader"></div>
+        </div>
+    </div>
+</body>
+
+</html>
