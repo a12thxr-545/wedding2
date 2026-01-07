@@ -113,6 +113,28 @@
         }
 
         /* ===== Responsive Design ===== */
+
+        /* iPad / Tablet specific (768px - 1024px) */
+        @media (min-width: 577px) and (max-width: 1024px) {
+            .album-section {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .album-item {
+                aspect-ratio: 1 / 1;
+                overflow: hidden;
+            }
+
+            .album-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+            }
+        }
+
         @media (max-width: 992px) {
             .album-section {
                 grid-template-columns: 1fr 1fr;
