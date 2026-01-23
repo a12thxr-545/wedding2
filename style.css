@@ -18,6 +18,7 @@
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Montserrat', sans-serif;
     --font-script: 'Great Vibes', cursive;
+    --font-thai: 'Mitr', sans-serif;
     --section-padding: clamp(4rem, 10vh, 8rem);
     --container-width: min(90%, 1200px);
     --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -545,6 +546,73 @@ section {
     color: rgba(255, 255, 255, 0.5);
     margin-top: 0.3rem;
     display: block;
+}
+
+/* Today Message - Wedding Day */
+.today-message {
+    font-family: var(--font-script);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-gold);
+    text-align: center;
+    animation: todayPulse 2s ease-in-out infinite;
+}
+
+@keyframes todayPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.85;
+        transform: scale(1.02);
+    }
+}
+
+/* Event Countdown - Wedding Day */
+.event-countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.next-event-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding-top: 0.5rem;
+}
+
+.next-event-time {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-gold);
+    letter-spacing: 0.1em;
+}
+
+.next-event-title {
+    font-family: var(--font-thai);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.next-event-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* Couple */
