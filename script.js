@@ -78,7 +78,7 @@ function initCountdown() {
     // กำหนดการทั้งหมด (events)
     const events = [
         { time: '06:30', titleTh: 'พิธีสงฆ์', titleEn: 'Religious Ceremony' },
-        { time: '08:10', titleTh: 'แห่ขันหมาก', titleEn: 'Khan Maak Procession' },
+        { time: '08:09', titleTh: 'แห่ขันหมาก', titleEn: 'Khan Maak Procession' },
         { time: '08:30', titleTh: 'พิธีหมั้น', titleEn: 'Engagement Ceremony' },
         { time: '09:00', titleTh: 'พิธีหลั่งน้ำสังข์', titleEn: 'Water Pouring Ceremony' },
         { time: '10:00', titleTh: 'รับประทานอาหาร', titleEn: 'Wedding Luncheon' },
