@@ -497,10 +497,10 @@ section {
 }
 
 .countdown-title {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Prompt', 'Montserrat', 'Times New Roman', serif;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.7);
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     margin-bottom: 0.8rem;
 }
 
